@@ -58,7 +58,7 @@ public class CentralLoggerRouteBuilder  extends RouteBuilder{
 
 		from("activemq:queue:centrallogger.log")
 		.log( "activemq:queue:centrallogger.log package with body ${body} !" )
-		.setHeader(Exchange.HTTP_METHOD, constant(org.apache.camel.component.http4.HttpMethods.POST))
+		.setHeader(Exchange.HTTP_METHOD, constant(org.apache.camel.component.http.HttpMethods.POST))
         .setHeader("Content-Type", constant("application/json"))
         .to("log:DEBUG?showBody=true&showHeaders=true")
         .doTry()
